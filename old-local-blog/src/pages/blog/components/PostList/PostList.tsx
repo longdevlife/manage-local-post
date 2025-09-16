@@ -1,5 +1,5 @@
 
-import React from 'react'
+// Remove unused React import as we're using modern JSX transform
 import PostItem from '../PostItem/PostItem'
 
 const PostList = () => {
@@ -8,7 +8,7 @@ const PostList = () => {
             <div className="mb-8">
                 <div className="flex items-center justify-between mb-6">
                     <div>
-                        <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 flex items-center">
+                        <h2 className="text-3xl font-bold text-blue-600  flex items-center">
                             <i className="fas fa-blog mr-3 text-blue-600"></i>Bài viết mới nhất
                         </h2>
                         <p className="text-gray-600 dark:text-gray-400 mt-2">Khám phá những kiến thức và trải nghiệm mới nhất</p>
