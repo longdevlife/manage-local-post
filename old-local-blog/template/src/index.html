@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Long Dev Blog - Chia sẻ kiến thức & trải nghiệm</title>
+    <meta name="description" content="Blog chia sẻ kiến thức lập trình, kinh nghiệm phát triển phần mềm và những câu chuyện truyền cảm hứng từ Long Dev." />
+    <link href="../dist/output.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+  <body class="font-inter bg-gray-50 text-gray-900 antialiased">
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center space-x-8">
+            <div class="flex-shrink-0">
+              <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Long Dev Blog
+              </h1>
+            </div>
+            <div class="hidden md:block">
+              <div class="ml-10 flex items-baseline space-x-8">
+                <a href="#home" class="text-gray-700 hover:text-blue-600 transition-colors px-3 py-2 rounded-md text-sm font-medium">
+                  <i class="fas fa-home mr-2"></i>Trang chủ
+                </a>
+                <a href="#posts" class="text-gray-700 hover:text-blue-600 transition-colors px-3 py-2 rounded-md text-sm font-medium">
+                  <i class="fas fa-blog mr-2"></i>Bài viết
+                </a>
+                <a href="#about" class="text-gray-700 hover:text-blue-600 transition-colors px-3 py-2 rounded-md text-sm font-medium">
+                  <i class="fas fa-user mr-2"></i>Giới thiệu
+                </a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-600 transition-colors px-3 py-2 rounded-md text-sm font-medium">
+                  <i class="fas fa-envelope mr-2"></i>Liên hệ
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center space-x-4">
+            <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-gray-100 transition-colors">
+              <i class="fas fa-moon text-gray-600"></i>
+            </button>
+            <button class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors">
+              <i class="fas fa-bars text-gray-600"></i>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="flex min-h-screen">
+      <!-- Sidebar -->
+      <aside class="hidden lg:block w-64 bg-white border-r border-gray-200 sticky top-16 h-screen overflow-y-auto">
+        <div class="p-6">
+          <div class="mb-8">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Danh mục</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="block px-3 py-2 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">
+                <i class="fas fa-code mr-2"></i>Lập trình
+              </a></li>
+              <li><a href="#" class="block px-3 py-2 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">
+                <i class="fas fa-mobile-alt mr-2"></i>Mobile App
+              </a></li>
+              <li><a href="#" class="block px-3 py-2 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">
+                <i class="fas fa-globe mr-2"></i>Web Development
+              </a></li>
+              <li><a href="#" class="block px-3 py-2 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">
+                <i class="fas fa-brain mr-2"></i>AI & Machine Learning
+              </a></li>
+            </ul>
+          </div>
+          <div class="mb-8">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Thống kê</h3>
+            <div class="space-y-3">
+              <div class="bg-blue-50 p-3 rounded-lg">
+                <div class="text-2xl font-bold text-blue-600">24</div>
+                <div class="text-sm text-gray-600">Tổng bài viết</div>
+              </div>
+              <div class="bg-green-50 p-3 rounded-lg">
+                <div class="text-2xl font-bold text-green-600">1.2k</div>
+                <div class="text-sm text-gray-600">Lượt xem</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 lg:ml-0">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <!-- Create Post Section -->
+          <section id="create-post" class="mb-12">
+            <div class="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
+              <div class="bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-4">
+                <h2 class="text-2xl font-bold text-white flex items-center">
+                  <i class="fas fa-edit mr-3"></i>Tạo bài viết mới
+                </h2>
+                <p class="text-blue-100 mt-1">Chia sẻ kiến thức và trải nghiệm của bạn</p>
+              </div>
+              
+              <form class="p-6 space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div class="space-y-2">
+                    <label for="title" class="block text-sm font-semibold text-gray-700 mb-2">
+                      <i class="fas fa-heading mr-2 text-blue-500"></i>Tiêu đề bài viết
+                    </label>
+                    <input
+                      type="text"
+                      id="title"
+                      class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400"
+                      placeholder="Nhập tiêu đề hấp dẫn..."
+                      required=""
+                      value=""
+                    />
+                  </div>
+                  
+                  <div class="space-y-2">
+                    <label for="featuredImage" class="block text-sm font-semibold text-gray-700 mb-2">
+                      <i class="fas fa-image mr-2 text-green-500"></i>Ảnh đại diện
+                    </label>
+                    <input
+                      type="text"
+                      id="featuredImage"
+                      class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400"
+                      placeholder="https://example.com/image.jpg"
+                      required=""
+                      value=""
+                    />
+                  </div>
+                </div>
+
+                <div class="space-y-2">
+                  <label for="description" class="block text-sm font-semibold text-gray-700 mb-2">
+                    <i class="fas fa-align-left mr-2 text-purple-500"></i>Nội dung bài viết
+                  </label>
+                  <textarea
+                    id="description"
+                    rows="6"
+                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400 resize-none"
+                    placeholder="Viết nội dung bài viết của bạn ở đây..."
+                    required=""
+                  ></textarea>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div class="space-y-2">
+                    <label for="publishDate" class="block text-sm font-semibold text-gray-700 mb-2">
+                      <i class="fas fa-calendar-alt mr-2 text-orange-500"></i>Ngày xuất bản
+                    </label>
+                    <input
+                      type="datetime-local"
+                      id="publishDate"
+                      class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                      required=""
+                      value=""
+                    />
+                  </div>
+                  
+                  <div class="flex items-end">
+                    <div class="flex items-center space-x-3 p-4 bg-gray-50 rounded-lg w-full">
+                      <input 
+                        id="publish" 
+                        type="checkbox" 
+                        class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2" 
+                      />
+                      <label for="publish" class="text-sm font-medium text-gray-700 cursor-pointer">
+                        <i class="fas fa-globe mr-2 text-blue-500"></i>Xuất bản ngay
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex flex-wrap gap-3 pt-4 border-t border-gray-200">
+                  <button
+                    type="submit"
+                    class="flex-1 sm:flex-none inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transform hover:scale-105 transition-all duration-200 shadow-lg"
+                  >
+                    <i class="fas fa-paper-plane mr-2"></i>Xuất bản bài viết
+                  </button>
+                  
+                  <button
+                    type="button"
+                    class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-green-500 to-teal-500 text-white font-semibold rounded-lg hover:from-green-600 hover:to-teal-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transform hover:scale-105 transition-all duration-200 shadow-lg"
+                  >
+                    <i class="fas fa-sync-alt mr-2"></i>Cập nhật
+                  </button>
+                  
+                  <button
+                    type="reset"
+                    class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-gray-500 to-gray-600 text-white font-semibold rounded-lg hover:from-gray-600 hover:to-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transform hover:scale-105 transition-all duration-200 shadow-lg"
+                  >
+                    <i class="fas fa-times mr-2"></i>Hủy bỏ
+                  </button>
+                </div>
+              </form>
+            </div>
+          </section>
+          <!-- Blog Posts Section -->
+          <section id="blog-posts">
+            <div class="mb-8">
+              <div class="flex items-center justify-between mb-6">
+                <div>
+                  <h2 class="text-3xl font-bold text-gray-900 flex items-center">
+                    <i class="fas fa-blog mr-3 text-blue-600"></i>Bài viết mới nhất
+                  </h2>
+                  <p class="text-gray-600 mt-2">Khám phá những kiến thức và trải nghiệm mới nhất</p>
+                </div>
+                <div class="flex space-x-3">
+                  <button class="px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 transition-colors">
+                    <i class="fas fa-th-large mr-2"></i>Lưới
+                  </button>
+                  <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors">
+                    <i class="fas fa-list mr-2"></i>Danh sách
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid gap-8 lg:grid-cols-2">
+              <!-- Blog Post Card 1 -->
+              <article class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 overflow-hidden">
+                <div class="relative overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1665412019489-1928d5afa5cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
+                    loading="lazy"
+                    alt="Mọi công việc thành đạt đều nhờ sự kiên trì và lòng say mê."
+                    class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div class="absolute top-4 left-4">
+                    <span class="px-3 py-1 bg-blue-600 text-white text-xs font-semibold rounded-full">
+                      <i class="fas fa-brain mr-1"></i>Mindset
+                    </span>
+                  </div>
+                </div>
+                
+                <div class="p-6">
+                  <div class="flex items-center text-sm text-gray-500 mb-3">
+                    <i class="fas fa-calendar-alt mr-2"></i>
+                    <time datetime="2022-10-13T11:32">13 Tháng 10, 2022</time>
+                    <span class="mx-2">•</span>
+                    <i class="fas fa-clock mr-1"></i>
+                    <span>5 phút đọc</span>
+                  </div>
+                  
+                  <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                    Mọi công việc thành đạt đều nhờ sự kiên trì và lòng say mê.
+                  </h3>
+                  
+                  <p class="text-gray-600 mb-4 line-clamp-3">
+                    Nghịch cảnh là một phần của cuộc sống. Nó không thể bị kiểm soát. Cái có thể kiểm soát chính là cách chúng ta phản ứng trước nghịch cảnh.
+                  </p>
+                  
+                  <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                    <div class="flex items-center space-x-2">
+                      <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
+                        <i class="fas fa-user text-white text-xs"></i>
+                      </div>
+                      <span class="text-sm font-medium text-gray-700">Long Dev</span>
+                    </div>
+                    <div class="flex space-x-2">
+                      <button class="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors" title="Chỉnh sửa">
+                        <i class="fas fa-edit"></i>
+                      </button>
+                      <button class="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="Xóa">
+                        <i class="fas fa-trash-alt"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Blog Post Card 2 -->
+              <article class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 overflow-hidden">
+                <div class="relative overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1656333422687-6830f720c38f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+                    loading="lazy"
+                    alt="Muốn thành công thì khao khát thành công phải lớn hơn nỗi sợ bị thất bại."
+                    class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div class="absolute top-4 left-4">
+                    <span class="px-3 py-1 bg-green-600 text-white text-xs font-semibold rounded-full">
+                      <i class="fas fa-rocket mr-1"></i>Success
+                    </span>
+                  </div>
+                </div>
+                
+                <div class="p-6">
+                  <div class="flex items-center text-sm text-gray-500 mb-3">
+                    <i class="fas fa-calendar-alt mr-2"></i>
+                    <time datetime="2022-10-14T11:33">14 Tháng 10, 2022</time>
+                    <span class="mx-2">•</span>
+                    <i class="fas fa-clock mr-1"></i>
+                    <span>7 phút đọc</span>
+                  </div>
+                  
+                  <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                    Muốn thành công thì khao khát thành công phải lớn hơn nỗi sợ bị thất bại.
+                  </h3>
+                  
+                  <p class="text-gray-600 mb-4 line-clamp-3">
+                    Bạn chớ nên bỏ cuộc khi bạn vẫn còn điều gì đó để cho đi. Không có gì là hoàn toàn bế tắc, sự việc chỉ thật sự trở nên bế tắc khi bạn thôi không cố gắng nữa.
+                  </p>
+                  
+                  <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                    <div class="flex items-center space-x-2">
+                      <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
+                        <i class="fas fa-user text-white text-xs"></i>
+                      </div>
+                      <span class="text-sm font-medium text-gray-700">Long Dev</span>
+                    </div>
+                    <div class="flex space-x-2">
+                      <button class="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors" title="Chỉnh sửa">
+                        <i class="fas fa-edit"></i>
+                      </button>
+                      <button class="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="Xóa">
+                        <i class="fas fa-trash-alt"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Blog Post Card 3 -->
+              <article class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 overflow-hidden">
+                <div class="relative overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1656105544318-1cca8c4d9878?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                    loading="lazy"
+                    alt="Mất niềm tin vào bản thân, cũng như bạn đánh mất thành công đang đợi mình"
+                    class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div class="absolute top-4 left-4">
+                    <span class="px-3 py-1 bg-purple-600 text-white text-xs font-semibold rounded-full">
+                      <i class="fas fa-heart mr-1"></i>Motivation
+                    </span>
+                  </div>
+                </div>
+                
+                <div class="p-6">
+                  <div class="flex items-center text-sm text-gray-500 mb-3">
+                    <i class="fas fa-calendar-alt mr-2"></i>
+                    <time datetime="2022-10-15T11:33">15 Tháng 10, 2022</time>
+                    <span class="mx-2">•</span>
+                    <i class="fas fa-clock mr-1"></i>
+                    <span>4 phút đọc</span>
+                  </div>
+                  
+                  <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                    Mất niềm tin vào bản thân, cũng như bạn đánh mất thành công đang đợi mình
+                  </h3>
+                  
+                  <p class="text-gray-600 mb-4 line-clamp-3">
+                    Ai cũng nói tương lai chúng ta luôn rộng mở, nhưng nếu không nắm bắt được hiện tại thì tương lai sẽ chẳng có gì.
+                  </p>
+                  
+                  <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                    <div class="flex items-center space-x-2">
+                      <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
+                        <i class="fas fa-user text-white text-xs"></i>
+                      </div>
+                      <span class="text-sm font-medium text-gray-700">Long Dev</span>
+                    </div>
+                    <div class="flex space-x-2">
+                      <button class="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors" title="Chỉnh sửa">
+                        <i class="fas fa-edit"></i>
+                      </button>
+                      <button class="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="Xóa">
+                        <i class="fas fa-trash-alt"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Blog Post Card 4 -->
+              <article class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 overflow-hidden">
+                <div class="relative overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1648184217069-34f0a57791bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
+                    loading="lazy"
+                    alt="Nơi nào có ý chí, nơi đó có con đường."
+                    class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div class="absolute top-4 left-4">
+                    <span class="px-3 py-1 bg-orange-600 text-white text-xs font-semibold rounded-full">
+                      <i class="fas fa-lightbulb mr-1"></i>Inspiration
+                    </span>
+                  </div>
+                </div>
+                
+                <div class="p-6">
+                  <div class="flex items-center text-sm text-gray-500 mb-3">
+                    <i class="fas fa-calendar-alt mr-2"></i>
+                    <time datetime="2022-10-16T11:35">16 Tháng 10, 2022</time>
+                    <span class="mx-2">•</span>
+                    <i class="fas fa-clock mr-1"></i>
+                    <span>3 phút đọc</span>
+                  </div>
+                  
+                  <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                    Nơi nào có ý chí, nơi đó có con đường.
+                  </h3>
+                  
+                  <p class="text-gray-600 mb-4 line-clamp-3">
+                    Tôi có thể chấp nhận thất bại, mọi người đều thất bại ở một việc gì đó. Nhưng tôi không chấp nhận việc không cố gắng.
+                  </p>
+                  
+                  <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                    <div class="flex items-center space-x-2">
+                      <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
+                        <i class="fas fa-user text-white text-xs"></i>
+                      </div>
+                      <span class="text-sm font-medium text-gray-700">Long Dev</span>
+                    </div>
+                    <div class="flex space-x-2">
+                      <button class="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors" title="Chỉnh sửa">
+                        <i class="fas fa-edit"></i>
+                      </button>
+                      <button class="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="Xóa">
+                        <i class="fas fa-trash-alt"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+              <button class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transform hover:scale-105 transition-all duration-200 shadow-lg">
+                <i class="fas fa-arrow-down mr-2"></i>Xem thêm bài viết
+              </button>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div class="col-span-2">
+            <h3 class="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              Long Dev Blog
+            </h3>
+            <p class="text-gray-400 mb-6 max-w-md">
+              Chia sẻ kiến thức lập trình, kinh nghiệm phát triển phần mềm và những câu chuyện truyền cảm hứng.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                <i class="fab fa-facebook-f text-xl"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                <i class="fab fa-github text-xl"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                <i class="fab fa-linkedin text-xl"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Danh mục</h4>
+            <ul class="space-y-2">
+              <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Lập trình</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Web Development</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Mobile App</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition-colors">AI & Machine Learning</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Liên kết</h4>
+            <ul class="space-y-2">
+              <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Giới thiệu</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Liên hệ</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Chính sách</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition-colors">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="border-t border-gray-800 pt-8 mt-8 text-center">
+          <p class="text-gray-400">
+            © 2024 Long Dev Blog. Made with <i class="fas fa-heart text-red-500"></i> in Vietnam.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript for Dark Mode -->
+    <script>
+      // Dark mode toggle functionality
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      const html = document.documentElement;
+
+      darkModeToggle.addEventListener('click', () => {
+        html.classList.toggle('dark');
+        const isDark = html.classList.contains('dark');
+        
+        // Update icon
+        const icon = darkModeToggle.querySelector('i');
+        icon.className = isDark ? 'fas fa-sun text-yellow-500' : 'fas fa-moon text-gray-600';
+        
+        // Save preference
+        localStorage.setItem('darkMode', isDark);
+      });
+
+      // Load saved preference
+      const savedDarkMode = localStorage.getItem('darkMode');
+      if (savedDarkMode === 'true') {
+        html.classList.add('dark');
+        const icon = darkModeToggle.querySelector('i');
+        icon.className = 'fas fa-sun text-yellow-500';
+      }
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    </script>
