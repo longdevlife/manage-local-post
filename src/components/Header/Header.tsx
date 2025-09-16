@@ -1,54 +1,38 @@
-@@ .. @@
 import { useState, useEffect } from 'react'
 
 const Header = () => {
     const [isDark, setIsDark] = useState(false)
 
     useEffect(() => {
--        // Load saved dark mode preference and sync state
--        const savedDarkMode = localStorage.getItem('darkMode')
--        const isDarkMode = savedDarkMode === 'true'
-+        // Check if dark mode is already enabled
-+        const isDarkMode = document.documentElement.classList.contains('dark')
-+        
-+        // Load saved preference if no class is set
-+        if (!isDarkMode) {
-+            const savedDarkMode = localStorage.getItem('darkMode')
-+            if (savedDarkMode === 'true') {
-+                document.documentElement.classList.add('dark')
-+                setIsDark(true)
-+                return
-+            }
-+        }
+        // Check if dark mode is already enabled
+        const isDarkMode = document.documentElement.classList.contains('dark')
+        
+        // Load saved preference if no class is set
+        if (!isDarkMode) {
+            const savedDarkMode = localStorage.getItem('darkMode')
+            if (savedDarkMode === 'true') {
+                document.documentElement.classList.add('dark')
+                setIsDark(true)
+                return
+            }
+        }
 
--        setIsDark(isDarkMode)
--
--        if (isDarkMode) {
--            document.documentElement.classList.add('dark')
--        } else {
--            document.documentElement.classList.remove('dark')
--        }
-+        setIsDark(isDarkMode)
+        setIsDark(isDarkMode)
     }, [])
 
     const toggleDarkMode = () => {
--        // Toggle dark class on html element - exactly like template
-+        // Toggle dark class on html element
+        // Toggle dark class on html element
         document.documentElement.classList.toggle('dark')
         const isDarkMode = document.documentElement.classList.contains('dark')
 
--        console.log('Dark mode toggled. New state:', isDarkMode)
--        console.log('HTML classes:', document.documentElement.className)
--
-         setIsDark(isDarkMode)
+        setIsDark(isDarkMode)
 
-         // Save preference
-         localStorage.setItem('darkMode', isDarkMode.toString())
+        // Save preference
+        localStorage.setItem('darkMode', isDarkMode.toString())
     }
 
     return (
--        <header className="sticky top-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 shadow-sm">
-+        <header className="sticky top-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 shadow-sm transition-colors">
+        <header className="sticky top-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 shadow-sm transition-colors">
             <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
                     <div className="flex items-center space-x-8">
@@ -77,9 +61,8 @@ const Header = () => {
                     <div className="flex items-center space-x-4">
                         <button
                             onClick={toggleDarkMode}
--                            className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-+                            className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-+                            title={isDark ? 'Chuyển sang chế độ sáng' : 'Chuyển sang chế độ tối'}
+                            className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                            title={isDark ? 'Chuyển sang chế độ sáng' : 'Chuyển sang chế độ tối'}
                         >
                             <i className={`fas ${isDark ? 'fa-sun text-yellow-500' : 'fa-moon text-gray-600 dark:text-gray-300'}`}></i>
                         </button>
@@ -92,3 +75,5 @@ const Header = () => {
         </header>
     )
 }
+
+export default Header
