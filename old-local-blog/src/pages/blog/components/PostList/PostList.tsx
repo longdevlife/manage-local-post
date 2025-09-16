@@ -1,8 +1,16 @@
 
 // Remove unused React import as we're using modern JSX transform
+import { useSelector } from 'react-redux'
 import PostItem from '../PostItem/PostItem'
+import type { RootState } from '../../../../store'
+
 
 const PostList = () => {
+
+    const postList = useSelector((state: RootState) => state.blog.postList)
+
+    console.log('Post List from Redux:', postList);
+
     return (
         <section id="blog-posts">
             <div className="mb-8">
@@ -25,10 +33,10 @@ const PostList = () => {
             </div>
 
             <div className="grid gap-8 lg:grid-cols-2">
-                <PostItem />
-                <PostItem />
-                <PostItem />
-                <PostItem />
+                {postList.map(post => (
+                    <PostItem post={post} key={post.id} />
+                ))}
+
             </div>
 
             {/* Load More Button */}

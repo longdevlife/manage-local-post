@@ -4,5 +4,5 @@ export interface Post {
   publishDate: string
   id: string
   featuredImage: string
-  published: string
+  published: boolean
 }

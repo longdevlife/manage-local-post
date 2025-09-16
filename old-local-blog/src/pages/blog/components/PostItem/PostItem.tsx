@@ -1,39 +1,43 @@
 
 // Remove unused React import as we're using modern JSX transform
 
-const PostItem = () => {
+import type { Post } from "../../../../types/blog"
+
+interface PostItemType {
+    post: Post
+}
+
+const PostItem = ({ post }: PostItemType) => {
     return (
         <article className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 overflow-hidden">
             <div className="relative overflow-hidden">
                 <img
-                    src="https://images.unsplash.com/photo-1665412019489-1928d5afa5cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
+                    src={post.featuredImage}
                     loading="lazy"
                     alt="Mọi công việc thành đạt đều nhờ sự kiên trì và lòng say mê."
                     className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-blue-600 text-white text-xs font-semibold rounded-full">
-                        <i className="fas fa-brain mr-1"></i>Mindset
-                    </span>
-                </div>
+
             </div>
 
             <div className="p-6">
                 <div className="flex items-center text-sm text-gray-500 mb-3">
                     <i className="fas fa-calendar-alt mr-2"></i>
-                    <time dateTime="2022-10-13T11:32">13 Tháng 10, 2022</time>
+                    {/* Dinh dạng hiện tại là 2024-09-15T10:30:00.000Z cần làm đẹp lại */}
+                    <time dateTime={post.publishDate}>{new Date(post.publishDate).toLocaleDateString('vi-VN', { day: '2-digit', month: 'long', year: 'numeric' })}</time>
+
                     <span className="mx-2">•</span>
                     <i className="fas fa-clock mr-1"></i>
                     <span>5 phút đọc</span>
                 </div>
 
                 <h3 className="text-xl font-bold text-gray-900 sition-colors line-clamp-2">
-                    Mọi công việc thành đạt đều nhờ sự kiên trì và lòng say mê.
+                    {post.title}
                 </h3>
 
                 <p className="text-gray-600 ">
-                    Nghịch cảnh là một phần của cuộc sống. Nó không thể bị kiểm soát. Cái có thể kiểm soát chính là cách chúng ta phản ứng trước nghịch cảnh.
+                    {post.description}
                 </p>
 
                 <div className="flex items-center justify-between pt-4 border-t border-gray-100 ">
