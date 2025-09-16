@@ -1,6 +1,8 @@
 @@ .. @@
 const Layout = ({ children }: LayoutProps) => {
     return (
+    )
+}
 -        <div className="font-inter bg-gray-50 text-gray-900 antialiased min-h-screen">
 +        <div className="font-inter bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 antialiased min-h-screen transition-colors">
             <Header />

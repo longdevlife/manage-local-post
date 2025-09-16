@@ -1,6 +1,8 @@
 @@ .. @@
 const Sidebar = () => {
     return (
+    )
+}
 -        <aside className="hidden lg:block w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 sticky top-16 h-screen overflow-y-auto">
 +        <aside className="hidden lg:block w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 sticky top-16 h-screen overflow-y-auto transition-colors">
             <div className="p-6">
