@@ -1,15 +1,12 @@
 
 import './App.css'
+import Blog from './pages/blog'
 
 function App() {
 
 
   return (
-    <>
-      <div>
-        <h1 className="text-3xl bg-red-400 font-bold underline">Hello world!</h1>
-      </div>
-    </>
+    <Blog />
   )
 }
 
