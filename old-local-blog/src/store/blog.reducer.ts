@@ -1,6 +1,6 @@
 // cú pháp nhanh redux  rslice
 
-import { createSlice } from '@reduxjs/toolkit'
+import { createAction, createSlice } from '@reduxjs/toolkit'
 import type { Post } from '../types/blog'
 
 interface BlogState {
@@ -60,9 +60,16 @@ const initialState: BlogState = {
 const blogReducer = createSlice({
   name: 'blogReducer',
   initialState,
-  reducers: {}
+  reducers: {
+    addPost: (state, action) => {
+      // immerjs
+      // immerjs giúp chúng ta mutate một state an toàn
+      const post = action.payload
+      state.postList.push(post)
+    }
+  }
 })
 
-// export const {} = blogReducer.actions
+export const { addPost } = blogReducer.actions
 
 export default blogReducer.reducer
