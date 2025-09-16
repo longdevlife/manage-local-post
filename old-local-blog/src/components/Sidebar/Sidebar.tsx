@@ -8,22 +8,22 @@ const Sidebar = () => {
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Danh mục</h3>
                     <ul className="space-y-2">
                         <li>
-                            <a href="#" className="block px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                            <a href="#" className="block px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                                 <i className="fas fa-code mr-2"></i>Lập trình
                             </a>
                         </li>
                         <li>
-                            <a href="#" className="block px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                            <a href="#" className="block px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                                 <i className="fas fa-mobile-alt mr-2"></i>Mobile App
                             </a>
                         </li>
                         <li>
-                            <a href="#" className="block px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                            <a href="#" className="block px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                                 <i className="fas fa-globe mr-2"></i>Web Development
                             </a>
                         </li>
                         <li>
-                            <a href="#" className="block px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                            <a href="#" className="block px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                                 <i className="fas fa-brain mr-2"></i>AI & Machine Learning
                             </a>
                         </li>

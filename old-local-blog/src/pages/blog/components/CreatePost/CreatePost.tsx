@@ -17,31 +17,31 @@ const CreatePost = () => {
                         <label htmlFor="title" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                             <i className="fas fa-heading mr-2 text-blue-500" />Tiêu đề bài viết
                         </label>
-                        <input type="text" id="title" className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400 dark:placeholder-gray-500" placeholder="Nhập tiêu đề hấp dẫn..." required />
+                        <input type="text" id="title" className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400 dark:placeholder-gray-500" placeholder="Nhập tiêu đề hấp dẫn..." required />
                     </div>
                     <div className="space-y-2">
                         <label htmlFor="featuredImage" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                             <i className="fas fa-image mr-2 text-green-500" />Ảnh đại diện
                         </label>
-                        <input type="text" id="featuredImage" className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400 dark:placeholder-gray-500" placeholder="https://example.com/image.jpg" required />
+                        <input type="text" id="featuredImage" className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400 dark:placeholder-gray-500" placeholder="https://example.com/image.jpg" required />
                     </div>
                 </div>
                 <div className="space-y-2">
                     <label htmlFor="description" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                         <i className="fas fa-align-left mr-2 text-purple-500" />Nội dung bài viết
                     </label>
-                    <textarea id="description" rows={6} className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400 dark:placeholder-gray-500 resize-none" placeholder="Viết nội dung bài viết của bạn ở đây..." />
+                    <textarea id="description" rows={6} className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400 dark:placeholder-gray-500 resize-none" placeholder="Viết nội dung bài viết của bạn ở đây..." />
                 </div>
                 <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                         <label htmlFor="publishDate" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                             <i className="fas fa-calendar-alt mr-2 text-orange-500" />Ngày xuất bản
                         </label>
-                        <input type="datetime-local" id="publishDate" className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" required />
+                        <input type="datetime-local" id="publishDate" className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" required />
                     </div>
                     <div className="flex items-end">
                         <div className="flex items-center space-x-3 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg w-full">
-                            <input id="publish" type="checkbox" className="w-5 h-5 text-blue-600 bg-gray-100 dark:bg-gray-600 border-gray-300 dark:border-gray-500 rounded focus:ring-blue-500 focus:ring-2" />
+                            <input id="publish" type="checkbox" className="w-5 h-5 text-blue-600 bg-white dark:bg-gray-600 border-gray-300 dark:border-gray-500 rounded focus:ring-blue-500 focus:ring-2" />
                             <label htmlFor="publish" className="text-sm font-medium text-gray-700 dark:text-gray-300 cursor-pointer">
                                 <i className="fas fa-globe mr-2 text-blue-500" />Xuất bản ngay
                             </label>
