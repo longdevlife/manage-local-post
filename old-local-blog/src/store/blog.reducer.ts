@@ -80,10 +80,21 @@ const blogReducer = createSlice({
     },
     cancelEdit: (state) => {
       state.editPost = null
+    },
+
+    updatePost: (state, action) => {
+      const postId = action.payload.id
+      state.postList.some((post, index) => {
+        if (post.id === postId) {
+          state.postList[index] = action.payload
+          return true
+        }
+        state.editPost = null
+      })
     }
   }
 })
 
-export const { addPost, deletePost, editPost, cancelEdit } = blogReducer.actions
+export const { addPost, deletePost, editPost, cancelEdit, updatePost } = blogReducer.actions
 
 export default blogReducer.reducer

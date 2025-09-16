@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import type { Post } from '../../../../types/blog'
 import { useDispatch, useSelector } from 'react-redux'
-import { addPost, cancelEdit } from '../../../../store/blog.reducer'
+import { addPost, cancelEdit, updatePost } from '../../../../store/blog.reducer'
 import type { RootState } from '../../../../store'
 
 const initialState: Post = {
@@ -21,9 +21,13 @@ const CreatePost = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    const formDataWithId = { ...formData, id: new Date().toISOString().slice(0, 16) }
-    dispatch(addPost(formDataWithId))
-    console.log('Form data submitted:', formDataWithId)
+    if (editingPost) {
+      dispatch(updatePost(formData))
+    } else {
+      const formDataWithId = { ...formData, id: new Date().toISOString().slice(0, 16) }
+      dispatch(addPost(formDataWithId))
+      console.log('Form data submitted:', formDataWithId)
+    }
     // Reset form gọi là clear data form khi mà ấn nút
     setFormData(initialState)
   }
