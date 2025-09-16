@@ -5,9 +5,11 @@ import type { Post } from '../types/blog'
 
 interface BlogState {
   postList: Post[]
+  editPost: Post | null
 }
 
 const initialState: BlogState = {
+  editPost: null,
   postList: [
     {
       id: '1',
@@ -70,10 +72,18 @@ const blogReducer = createSlice({
     deletePost: (state, action) => {
       const postId = action.payload
       state.postList = state.postList.filter((post) => post.id !== postId)
+    },
+    editPost: (state, action) => {
+      const postId = action.payload
+      const foundPost = state.postList.find((post) => post.id === postId) || null
+      state.editPost = foundPost
+    },
+    cancelEdit: (state) => {
+      state.editPost = null
     }
   }
 })
 
-export const { addPost, deletePost } = blogReducer.actions
+export const { addPost, deletePost, editPost, cancelEdit } = blogReducer.actions
 
 export default blogReducer.reducer

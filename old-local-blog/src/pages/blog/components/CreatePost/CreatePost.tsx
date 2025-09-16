@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { Post } from '../../../../types/blog'
-import { useDispatch } from 'react-redux'
-import { addPost } from '../../../../store/blog.reducer'
+import { useDispatch, useSelector } from 'react-redux'
+import { addPost, cancelEdit } from '../../../../store/blog.reducer'
+import type { RootState } from '../../../../store'
 
 const initialState: Post = {
   id: '',
@@ -25,6 +26,19 @@ const CreatePost = () => {
     console.log('Form data submitted:', formDataWithId)
     // Reset form gọi là clear data form khi mà ấn nút
     setFormData(initialState)
+  }
+
+  //edit post
+  const editingPost = useSelector((state: RootState) => state.blog.editPost)
+
+  useEffect(() => {
+    setFormData(editingPost || initialState)
+  }, [editingPost])
+
+  // Hủy edit
+
+  const handleCancelEdit = () => {
+    dispatch(cancelEdit())
   }
 
   return (
@@ -121,22 +135,22 @@ const CreatePost = () => {
         <div className='flex flex-wrap gap-3 pt-4 border-t border-gray-200'>
           <button
             type='submit'
-            className='inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200'
+            className='inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 cursor-pointer'
           >
-            <i className='fas fa-paper-plane mr-2'></i>Xuất bản bài viết
+            <i className='fas fa-paper-plane mr-2'></i>
+            {editingPost ? 'Cập nhật' : 'Đăng bài'}
           </button>
-          <button
-            type='button'
-            className='inline-flex items-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200'
-          >
-            <i className='fas fa-sync-alt mr-2'></i>Cập nhật
-          </button>
-          <button
-            type='button'
-            className='inline-flex items-center px-6 py-3 bg-gray-600 hover:bg-gray-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200'
-          >
-            <i className='fas fa-times mr-2'></i>Hủy bỏ
-          </button>
+          {editingPost && (
+            <>
+              <button
+                onClick={handleCancelEdit}
+                type='button'
+                className='inline-flex items-center px-6 py-3 bg-gray-600 hover:bg-gray-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 cursor-pointer'
+              >
+                <i className='fas fa-times mr-2'></i>Hủy bỏ
+              </button>
+            </>
+          )}
         </div>
       </form>
     </div>

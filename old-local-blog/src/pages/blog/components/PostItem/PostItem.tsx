@@ -5,9 +5,10 @@ import type { Post } from '../../../../types/blog'
 interface PostItemType {
   post: Post
   handleDelete: (postId: string) => void
+  handleEdit: (postId: string) => void
 }
 
-const PostItem = ({ post, handleDelete }: PostItemType) => {
+const PostItem = ({ post, handleDelete, handleEdit }: PostItemType) => {
   return (
     <article className='group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 overflow-hidden'>
       <div className='relative overflow-hidden'>
@@ -45,10 +46,18 @@ const PostItem = ({ post, handleDelete }: PostItemType) => {
             <span className='text-sm font-medium text-gray-700 '>Long Dev</span>
           </div>
           <div className='flex space-x-2'>
-            <button className='p-2 text-blue-600 sition-colors' title='Chỉnh sửa'>
+            <button
+              onClick={() => handleEdit(post.id)}
+              className='p-2 text-blue-600 sition-colors cursor-pointer'
+              title='Chỉnh sửa'
+            >
               <i className='fas fa-edit'></i>
             </button>
-            <button onClick={() => handleDelete(post.id)} className='p-2 text-red-600 sition-colors' title='Xóa'>
+            <button
+              onClick={() => handleDelete(post.id)}
+              className='p-2 text-red-600 sition-colors cursor-pointer'
+              title='Xóa'
+            >
               <i className='fas fa-trash-alt'></i>
             </button>
           </div>
