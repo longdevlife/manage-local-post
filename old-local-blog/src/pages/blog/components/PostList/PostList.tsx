@@ -3,12 +3,33 @@ import { useDispatch, useSelector } from 'react-redux'
 import PostItem from '../PostItem/PostItem'
 import type { RootState } from '../../../../store'
 import { deletePost, editPost } from '../../../../store/blog.reducer'
+import { useEffect } from 'react'
+
+import { blogService } from '../../../../services/blogService'
+
+// Gọi API trong useEffect()
+// Nếu gọi thành công thì dispatch action type: "blog/getPostListSuccess"
+// Nếu gọi thất bại thì dispatch action type: "blog/getPostListFailed"
+
+// Dispatch action type "blog/getPostList" (không dùng )
 
 const PostList = () => {
   const postList = useSelector((state: RootState) => state.blog.postList)
 
   // delete post
   const dispatch = useDispatch()
+
+  const fetchPostList = async () => {
+    try {
+      const respone = await blogService.getPostList()
+      console.log('Api PostList : ', respone.data)
+    } catch (error) {}
+  }
+
+  useEffect(() => {
+    fetchPostList()
+  }, [])
+
   const handleDelete = (postId: string) => dispatch(deletePost(postId))
 
   //   edit post
