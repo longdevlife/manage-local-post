@@ -57,7 +57,11 @@ const CreatePost = () => {
       <form onSubmit={handleSubmit} className='p-6 space-y-6'>
         <div className='grid md:grid-cols-2 gap-6'>
           <div className='space-y-2'>
-            <label htmlFor='title' className='block text-sm font-semibold text-gray-700 mb-2'>
+            <label
+              htmlFor='title'
+              className='block text-sm font-semibold text-gray-700 mb-2'
+              onClick={() => dispatch({ type: 'blog/click' })}
+            >
               <i className='fas fa-heading mr-2 text-blue-500' />
               Tiêu đề bài viết
             </label>

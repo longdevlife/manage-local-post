@@ -1,6 +1,6 @@
 // cú pháp nhanh redux  rslice
 
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, current, type PayloadAction } from '@reduxjs/toolkit'
 import type { Post } from '../types/blog'
 
 interface BlogState {
@@ -69,7 +69,7 @@ const blogReducer = createSlice({
       const post = action.payload
       state.postList.push(post)
     },
-    deletePost: (state, action) => {
+    deletePost: (state, action: PayloadAction<string>) => {
       const postId = action.payload
       state.postList = state.postList.filter((post) => post.id !== postId)
     },
@@ -92,6 +92,18 @@ const blogReducer = createSlice({
         state.editPost = null
       })
     }
+  },
+  extraReducers: (builder) => {
+    builder
+      .addMatcher(
+        (action) => action.type.includes('cancel'),
+        (state, action) => {
+          console.log(current(state))
+        }
+      )
+      .addDefaultCase((state, action) => {
+        console.log(`action type: ${action.type}`, current(state))
+      })
   }
 })
 
